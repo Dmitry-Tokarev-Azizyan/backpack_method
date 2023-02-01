@@ -1,0 +1,12 @@
+body{
+box-sizing: border-box;
+display: flex;
+justify-content: center;
+background-color: aquamarine;
+}
+.main{
+    background-color: bisque;
+    width: 70%;
+    height: 700px;
+    margin-top: 5%;
+}
