@@ -3,19 +3,21 @@ box-sizing: border-box;
 display: flex;
 justify-content: center;
 background-color: aquamarine;
+min-width: 1500px;
 }
 .main{
     background-color: bisque;
     width: 70%;
     height: 700px;
     margin-top: 5%;
-   
 }
 
 input{
     width: 30px;
 }
 
-table{
-    
+.table_1{
+margin-top: 2%;
+display: flex;
+justify-content: center;
 }
