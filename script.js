@@ -73,7 +73,24 @@ const numberSecondLevel_15 = document.getElementById(`numberSecondLevel_15`);
 const numberSecondLevel_16 = document.getElementById(`numberSecondLevel_16`);
 const numberSecondLevel_17 = document.getElementById(`numberSecondLevel_17`);
 
-
+//Третий уровень 
+const numberThirdLevel_1 = document.getElementById(`numberThirdLevel_1`);
+const numberThirdLevel_2 = document.getElementById(`numberThirdLevel_2`);
+const numberThirdLevel_3 = document.getElementById(`numberThirdLevel_3`);
+const numberThirdLevel_4 = document.getElementById(`numberThirdLevel_4`);
+const numberThirdLevel_5 = document.getElementById(`numberThirdLevel_5`);
+const numberThirdLevel_6 = document.getElementById(`numberThirdLevel_6`);
+const numberThirdLevel_7 = document.getElementById(`numberThirdLevel_7`);
+const numberThirdLevel_8 = document.getElementById(`numberThirdLevel_8`);
+const numberThirdLevel_9 = document.getElementById(`numberThirdLevel_9`);
+const numberThirdLevel_10 = document.getElementById(`numberThirdLevel_10`);
+const numberThirdLevel_11 = document.getElementById(`numberThirdLevel_11`);
+const numberThirdLevel_12 = document.getElementById(`numberThirdLevel_12`);
+const numberThirdLevel_13 = document.getElementById(`numberThirdLevel_13`);
+const numberThirdLevel_14 = document.getElementById(`numberThirdLevel_14`);
+const numberThirdLevel_15 = document.getElementById(`numberThirdLevel_15`);
+const numberThirdLevel_16 = document.getElementById(`numberThirdLevel_16`);
+const numberThirdLevel_17 = document.getElementById(`numberThirdLevel_17`);
 
 //массив веса
 let arrWeight = [weight_1,weight_2,weight_3,weight_4,weight_5];
@@ -149,8 +166,33 @@ let arrMax_value = [];
     numberSecondLevel_16,
     numberSecondLevel_17
  ];
+
  let arrSecondLevel = [];
 
+ //Третий массив выявления массы 
+const arrThirdLevel_dom = [    
+    numberThirdLevel_1,
+    numberThirdLevel_2,
+    numberThirdLevel_3,
+    numberThirdLevel_4,
+    numberThirdLevel_5,
+    numberThirdLevel_6,
+    numberThirdLevel_7,
+    numberThirdLevel_8,
+    numberThirdLevel_9,
+    numberThirdLevel_10,
+    numberThirdLevel_11,
+    numberThirdLevel_12,
+    numberThirdLevel_13,
+    numberThirdLevel_14,
+    numberThirdLevel_15,
+    numberThirdLevel_16,
+    numberThirdLevel_17
+];
+
+let arrThirdLevel = [];
+
+ //магические цифры
 let minWeight; // Минимальное значение 
 let y = 0; // Временная переменная указывает 0.1 в плюс 
 
@@ -174,7 +216,8 @@ arrMax_value[i] = Number(arrMax_value[i]);
 // диапазон массы + 0.1
 for(let i=0;i<arrMaximum_mass.length;i++){
 arrMaximum_mass_value[i] = minWeight+y;
-y=y+0.1;
+y=y+0.100000000000;
+arrMaximum_mass_value[i]=Number(arrMaximum_mass_value[i]).toFixed(1);
 arrMaximum_mass[i].value = arrMaximum_mass_value[i];
 }
 
@@ -182,9 +225,7 @@ arrMaximum_mass[i].value = arrMaximum_mass_value[i];
 // первый расчет 
 
 for(i=0;i<arrFirstLevel_dom.length; i++){
-    if(arrMaximum_mass_value[i]<arrWeight_value[0]){
               arrFirstLevel[i] = 0;  
-        }
     if(arrMaximum_mass_value[i]>=arrWeight_value [0]){
         arrFirstLevel[i] =  arrMax_value[0];
     }
@@ -196,15 +237,17 @@ arrFirstLevel_dom[i].value=arrFirstLevel[i];
 // второй расчет 
 
 for(i=0; i<arrSecondLevel_dom.length; i++){
-    if(arrMaximum_mass_value[i]<arrWeight_value[0]
-        ||arrMaximum_mass_value[i]<arrWeight_value[1]){
-            arrSecondLevel[i] = 0;  
-        }
+
+    arrSecondLevel[i] = 0;  
+     
     if(arrMaximum_mass_value[i]>=arrWeight_value[0]){
         arrSecondLevel[i] = arrMax_value[0];
     }
 
-    if(arrMaximum_mass_value[i]>=arrWeight_value[1]){
+    if(arrMaximum_mass_value[i]>=arrWeight_value[1]&&arrSecondLevel[i] < arrMax_value[0]){
+        arrSecondLevel[i] =  arrMax_value[1];
+    }
+    if(arrMaximum_mass_value[i]>=arrWeight_value[1]&&arrMax_value[1] > arrMax_value[0]){
         arrSecondLevel[i] =  arrMax_value[1];
     }
 
@@ -215,8 +258,84 @@ for(i=0; i<arrSecondLevel_dom.length; i++){
     arrSecondLevel_dom[i].value=arrSecondLevel[i];
 }
 
+//третий расчет 
 
-//проверка
+for(i=0; i<arrThirdLevel_dom.length; i++){
+//ноль
+            arrThirdLevel[i] = 0;  
+//первый
+if(arrMaximum_mass_value[i]>=arrWeight_value[0]){
+    arrThirdLevel[i] = arrMax_value[0];
+}
+//второй 
+//на пустоту 
+if(arrMaximum_mass_value[i]>=arrWeight_value[1]&&arrSecondLevel[i] < arrMax_value[0]){
+    arrThirdLevel[i] =  arrMax_value[1];
+}
+if(arrMaximum_mass_value[i]>=arrWeight_value[1]&&arrMax_value[1] > arrMax_value[0]){
+    arrThirdLevel[i] =  arrMax_value[1];
+}
+//третий
+//на пустоту 
+if(arrMaximum_mass_value[i]>=arrWeight_value[2]&&(arrThirdLevel[i] < arrMax_value[0]&&arrThirdLevel[i] < arrMax_value[1])){
+    arrThirdLevel[i] =  arrMax_value[2];
+}
+//меньше больше
+if(arrMaximum_mass_value[i]>=arrWeight_value[2]&&arrMax_value[2] > arrMax_value[0]||arrMax_value[2] > arrMax_value[1]){
+    //третий проверяем
+   if(arrMaximum_mass_value[i]>=arrWeight_value[2]&&arrMax_value[2] > arrMax_value[0]){
+    arrThirdLevel[i] =  arrMax_value[2];
+   }
+   if(arrMaximum_mass_value[i]>=arrWeight_value[2]&&arrMax_value[2] > arrMax_value[1]){
+    arrThirdLevel[i] =  arrMax_value[2];
+   }
+   // второй проверяем
+   if(arrMaximum_mass_value[i]>=arrWeight_value[1]&&arrMax_value[1] > arrMax_value[0]){
+    arrThirdLevel[i] =  arrMax_value[1];
+   }
+   if(arrMaximum_mass_value[i]>=arrWeight_value[1]&&arrMax_value[1] > arrMax_value[2]){
+    arrThirdLevel[i] =  arrMax_value[1];
+   }
+  // первый проверяем 
+  if(arrMaximum_mass_value[i]>=arrWeight_value[0]&&arrMax_value[0] > arrMax_value[1]){
+    arrThirdLevel[i] =  arrMax_value[0];
+   }
+   if(arrMaximum_mass_value[i]>=arrWeight_value[0]&&arrMax_value[0] > arrMax_value[2]){
+    arrThirdLevel[i] =  arrMax_value[0];
+   }
+}
+
+//сумма 
+/*
+if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1])){ //1,5
+    arrThirdLevel[i] = (arrMax_value[0]+arrMax_value[1]);
+    
+}
+*/
+
+/*
+if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[2])){ // 1,3
+    arrThirdLevel[i] = (arrMax_value[0]+arrMax_value[2]);
+}
+*/
+
+/*
+if(arrMaximum_mass_value[i]>=(arrWeight_value[1]+arrWeight_value[2])){//1.2
+    arrThirdLevel[i] = (arrMax_value[1]+arrMax_value[2]);
+}
+*/
+
+if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[2])){ //2
+    arrThirdLevel[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[2]);
+}
+
+arrThirdLevel_dom[i].value=arrThirdLevel[i];
+}
+
+
+
+   
+
 /*
 console.log(arrWeight_value);
 console.log(minWeight);
@@ -224,13 +343,11 @@ console.log(arrMaximum_mass_value);
 console.log(arrMaximum_mass_value.length);
 console.log(arrMax_value);
 */
-console.log(arrFirstLevel);
+
+
+
+console.log(arrMaximum_mass_value);
 console.log(arrSecondLevel);
-console.log(arrMax_value[0]+arrMax_value[1]);
-console.log(arrWeight_value[0]+arrWeight_value[1]);
+console.log(arrThirdLevel);
 
 }
-
-
-
-
