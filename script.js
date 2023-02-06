@@ -92,6 +92,25 @@ const numberThirdLevel_15 = document.getElementById(`numberThirdLevel_15`);
 const numberThirdLevel_16 = document.getElementById(`numberThirdLevel_16`);
 const numberThirdLevel_17 = document.getElementById(`numberThirdLevel_17`);
 
+// Четвертый уровень
+const number4Level_1 = document.getElementById(`number4Level_1`);
+const number4Level_2 = document.getElementById(`number4Level_2`);
+const number4Level_3 = document.getElementById(`number4Level_3`);
+const number4Level_4 = document.getElementById(`number4Level_4`);
+const number4Level_5 = document.getElementById(`number4Level_5`);
+const number4Level_6 = document.getElementById(`number4Level_6`);
+const number4Level_7 = document.getElementById(`number4Level_7`);
+const number4Level_8 = document.getElementById(`number4Level_8`);
+const number4Level_9 = document.getElementById(`number4Level_9`);
+const number4Level_10 = document.getElementById(`number4Level_10`);
+const number4Level_11 = document.getElementById(`number4Level_11`);
+const number4Level_12 = document.getElementById(`number4Level_12`);
+const number4Level_13 = document.getElementById(`number4Level_13`);
+const number4Level_14 = document.getElementById(`number4Level_14`);
+const number4Level_15 = document.getElementById(`number4Level_15`);
+const number4Level_16 = document.getElementById(`number4Level_16`);
+const number4Level_17 = document.getElementById(`number4Level_17`);
+
 //массив веса
 let arrWeight = [weight_1,weight_2,weight_3,weight_4,weight_5];
 let arrWeight_value = [];
@@ -192,6 +211,30 @@ const arrThirdLevel_dom = [
 
 let arrThirdLevel = [];
 
+//Четвертый уровень 
+
+const arr4Level_dom = [    
+number4Level_1,
+number4Level_2,
+number4Level_3,
+number4Level_4,
+number4Level_5,
+number4Level_6,
+number4Level_7,
+number4Level_8,
+number4Level_9,
+number4Level_10,
+number4Level_11,
+number4Level_12,
+number4Level_13,
+number4Level_14,
+number4Level_15,
+number4Level_16,
+number4Level_17   
+];
+
+let arr4Level = [];
+
  //магические цифры
 let minWeight; // Минимальное значение 
 let y = 0; // Временная переменная указывает 0.1 в плюс 
@@ -277,35 +320,41 @@ if(arrMaximum_mass_value[i]>=arrWeight_value[1]&&arrSecondLevel[i] < arrMax_valu
 if(arrMaximum_mass_value[i]>=arrWeight_value[1]&&arrMax_value[1] > arrMax_value[0]){
     arrThirdLevel[i] =  arrMax_value[1];
 }
+
+
+
 //третий
 //на пустоту 
 if(arrMaximum_mass_value[i]>=arrWeight_value[2]&&(arrThirdLevel[i] < arrMax_value[0]&&arrThirdLevel[i] < arrMax_value[1])){
     arrThirdLevel[i] =  arrMax_value[2];
 }
+
 //меньше больше
-if(arrMaximum_mass_value[i]>=arrWeight_value[2]&&arrMax_value[2] > arrMax_value[0]||arrMax_value[2] > arrMax_value[1]){
-    //третий проверяем
-   if(arrMaximum_mass_value[i]>=arrWeight_value[2]&&arrMax_value[2] > arrMax_value[0]){
-    arrThirdLevel[i] =  arrMax_value[2];
-   }
-   if(arrMaximum_mass_value[i]>=arrWeight_value[2]&&arrMax_value[2] > arrMax_value[1]){
-    arrThirdLevel[i] =  arrMax_value[2];
-   }
-   // второй проверяем
-   if(arrMaximum_mass_value[i]>=arrWeight_value[1]&&arrMax_value[1] > arrMax_value[0]){
-    arrThirdLevel[i] =  arrMax_value[1];
-   }
-   if(arrMaximum_mass_value[i]>=arrWeight_value[1]&&arrMax_value[1] > arrMax_value[2]){
-    arrThirdLevel[i] =  arrMax_value[1];
-   }
-  // первый проверяем 
-  if(arrMaximum_mass_value[i]>=arrWeight_value[0]&&arrMax_value[0] > arrMax_value[1]){
-    arrThirdLevel[i] =  arrMax_value[0];
-   }
-   if(arrMaximum_mass_value[i]>=arrWeight_value[0]&&arrMax_value[0] > arrMax_value[2]){
-    arrThirdLevel[i] =  arrMax_value[0];
-   }
+
+//новый цикл
+if(arrMaximum_mass_value[i]>=arrWeight_value[2]){//v3 по массе 
+if(arrMax_value[0]>arrMax_value[1]){//v1>v2
+if(arrMax_value[0]>arrMax_value[2]){//v1>v3
+if(arrMaximum_mass_value[i]>=arrWeight_value[0]){
+arrThirdLevel[i] = arrMax_value[0];  
+}   
 }
+else{
+arrThirdLevel[i] = arrMax_value[2];   //иначе, чем v1>v3, то v3
+}
+}
+else if(arrMax_value[1]>arrMax_value[2]){
+if(arrMaximum_mass_value[i]>=arrWeight_value[1]){
+arrThirdLevel[i] = arrMax_value[1];   //иначе 2
+}
+}
+else{
+    arrThirdLevel[i] = arrMax_value[2];  // иначе 3  
+}
+
+}
+
+//новый цикл 
 
 let sumArr_1 = arrWeight_value[0]+arrWeight_value[1];
 let sumArr_2 = arrWeight_value[0]+arrWeight_value[2];
@@ -406,10 +455,80 @@ if(sumArr_2<sumArr_3){
         }
         
         arrThirdLevel_dom[i].value=arrThirdLevel[i];
-        
-        
-    
+          
 }
+
+
+//Четвертый расчет МАССИВА. 
+
+for(i=0; i<=arr4Level_dom.length; i++){
+    //заполнили нулями 
+    arr4Level[i] = 0;  
+
+//первая деталь
+if(arrMaximum_mass_value[i]>=arrWeight_value[0]){
+        arr4Level[i] = arrMax_value[0];
+}
+
+//вторая деталь 
+//на пустоту 
+if(arrMaximum_mass_value[i]>=arrWeight_value[1]&&arrSecondLevel[i] < arrMax_value[0]){
+    arr4Level[i] =  arrMax_value[1];
+}
+if(arrMaximum_mass_value[i]>=arrWeight_value[1]&&arrMax_value[1] > arrMax_value[0]){
+    arr4Level[i] =  arrMax_value[1];
+}
+// Третья деталь
+//на пустоту 
+if(arrMaximum_mass_value[i]>=arrWeight_value[2]&&(arr4Level[i] < arrMax_value[0]&&arr4Level[i] < arrMax_value[1])){
+    arr4Level[i] =  arrMax_value[2];
+}
+//меньше больше
+
+if(arrMaximum_mass_value[i]>=arrWeight_value[2]){//v3 по массе 
+    if(arrMax_value[0]>arrMax_value[1]){//v1>v2
+    if(arrMax_value[0]>arrMax_value[2]){//v1>v3
+    if(arrMaximum_mass_value[i]>=arrWeight_value[0]){
+    arr4Level[i] = arrMax_value[0];  
+    }   
+    }
+    else{
+    arr4Level[i] = arrMax_value[2];   //иначе, чем v1>v3, то v3
+    }
+    }
+    else if(arrMax_value[1]>arrMax_value[2]){
+    if(arrMaximum_mass_value[i]>=arrWeight_value[1]){
+    arr4Level[i] = arrMax_value[1];   //иначе 2
+    }
+    }
+    else{
+        arr4Level[i] = arrMax_value[2];  // иначе 3  
+    }
+    
+    }
+
+
+//Четвертая деталь 
+
+//на пустоту 
+if(arrMaximum_mass_value[i]>=arrWeight_value[3]&&
+    (arr4Level[i] < arrMax_value[0]
+        &&arr4Level[i] < arrMax_value[1]
+        &&arr4Level[i] < arrMax_value[2])){
+    arr4Level[i] =  arrMax_value[3];
+}
+//меньше больше
+
+
+
+arr4Level_dom[i].value=arr4Level[i];
+
+}
+
+
+
+
+
 
 /*
 if(arrMaximum_mass_value[i]>=(arrWeight_value[1]+arrWeight_value[2])){//1.2 - 3
@@ -427,10 +546,10 @@ if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1])){ //1,5 - 1
 
 
 
-console.log(arrMaximum_mass_value);
+//console.log(arrMaximum_mass_value);
 
-console.log(arrThirdLevel);
-
+//console.log(arrThirdLevel);
+console.log(arr4Level);
 
 }
 
