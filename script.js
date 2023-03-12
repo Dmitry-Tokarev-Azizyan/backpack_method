@@ -947,12 +947,289 @@ else{
 }
 
 //пятая!
-if(arrMaximum_mass_value[i]>=arrWeight_value[4]&&
-    (arr5Level[i] < arrMax_value[0]
-        &&arr5Level[i] < arrMax_value[1]
-        &&arr5Level[i] < arrMax_value[2]
-        &&arr5Level[i] < arrMax_value[3])){
-    arr5Level[i] =  arrMax_value[4];
+if(arrMaximum_mass_value[i]>=arrWeight_value[4]){
+if(arrMax_value[4]>arr5Level[i]){
+        arr5Level[i] =  arrMax_value[4];
+}
+}
+
+//новые переменные
+let summArr_1_2 = arrWeight_value[0]+arrWeight_value[1]; //1+2 v1
+let summArr_1_3 = arrWeight_value[0]+arrWeight_value[2]; //1+3 v2
+let summArr_1_4 = Number((arrWeight_value[0]+arrWeight_value[3]).toFixed(1)); //1+4 v3
+
+let summArr_2_3 = arrWeight_value[1]+arrWeight_value[2]; //2+3 v4
+
+let summArr_2_4 = arrWeight_value[1]+arrWeight_value[3]; //2+4 v5
+
+let summArr_3_4 = arrWeight_value[2]+arrWeight_value[3]; //3+4 v6
+
+let summArr_1_5 = arrWeight_value[0]+arrWeight_value[4]; //1+5 v7 *******
+
+let summArr_2_5 = arrWeight_value[1]+arrWeight_value[4]; //2+5 v8 ********
+
+let summArr_3_5 = arrWeight_value[2]+arrWeight_value[4]; //3+5 v9 ********
+
+let summArr_4_5 = arrWeight_value[3]+arrWeight_value[4]; //4+5 v10 ********
+
+let summMAXArr_1_2 = arrMax_value[0]+arrMax_value[1]; //1+2 v1
+let summMAXArr_1_3 = arrMax_value[0]+arrMax_value[2]; //1+3 v2
+let summMAXArr_1_4 = arrMax_value[0]+arrMax_value[3]; //1+4 v3
+
+let summMAXArr_2_3 = arrMax_value[1]+arrMax_value[2]; //2+3 v4
+let summMAXArr_2_4 = arrMax_value[1]+arrMax_value[3]; //2+4 v5
+
+let summMAXArr_3_4 = arrMax_value[2]+arrMax_value[3]; //3+4 v6
+
+let summMAXArr_1_5 = arrMax_value[0]+arrMax_value[4]; //1+5 v7 *******
+
+let summMAXArr_2_5 = arrMax_value[1]+arrMax_value[4]; //2+5 v8 ********
+
+let summMAXArr_3_5 = arrMax_value[2]+arrMax_value[4]; //3+5 v9 ********
+
+let summMAXArr_4_5 = arrMax_value[3]+arrMax_value[4]; //4+5 v10 ********
+
+
+
+let masslevel5 = [
+    summArr_1_2,
+    summArr_1_3,
+    summArr_1_4,
+    summArr_2_3,
+    summArr_2_4,
+    summArr_3_4,
+    summArr_1_5,
+    summArr_2_5,
+    summArr_3_5,
+    summArr_4_5
+]
+//const valuelevel5 = [summMAXArr_1_2,summMAXArr_1_3,summMAXArr_1_4,summMAXArr_2_3,summMAXArr_2_4,summMAXArr_3_4]
+const sumMassValue5 = [
+    [masslevel5[0],summMAXArr_1_2],
+    [masslevel5[1],summMAXArr_1_3],
+    [masslevel5[2],summMAXArr_1_4],
+    [masslevel5[3],summMAXArr_2_3],
+    [masslevel5[4],summMAXArr_2_4],
+    [masslevel5[5],summMAXArr_3_4],
+    [masslevel5[6],summMAXArr_1_5],
+    [masslevel5[7],summMAXArr_2_5],
+    [masslevel5[8],summMAXArr_3_5],
+    [masslevel5[9],summMAXArr_4_5],
+]
+
+function bubbleSortConcept5(arr) {
+    for (let j = arr.length - 1; j > 0; j--) {
+      for (let i = 0; i < j; i++) {
+        if (arr[i] > arr[i + 1]) {
+          let temp = arr[i];
+          arr[i] = arr[i + 1];
+          arr[i + 1] = temp;
+        }
+      }
+    }
+  }
+//console.log(arr4Level[i])
+ // console.log(arrMaximum_mass_value[i]);
+//console.log(masslevel4);
+//console.log(valuelevel4);
+  bubbleSortConcept5(sumMassValue5);
+//console.log(masslevel4);
+  //console.log(sumMassValue);
+  //console.log(sumMassValue[0][0]);
+ // console.log(sumMassValue[0][1]);
+//console.log(sumMassValue[1][0]);
+ // console.log(sumMassValue)
+
+if(arrMaximum_mass_value[i]>=sumMassValue5[0][0]){ //1
+    
+    arr5Level[i] = sumMassValue5[0][1];
+
+}
+if(arrMaximum_mass_value[i]>=sumMassValue5[1][0]){ //2
+    
+    arr5Level[i] = sumMassValue5[1][1];
+    if(sumMassValue5[1][1]<sumMassValue5[0][1]){
+    arr5Level[i] = sumMassValue5[0][1];
+    }
+
+}
+if(arrMaximum_mass_value[i]>=sumMassValue5[2][0]){ //3
+    
+    arr5Level[i] = sumMassValue5[2][1];
+    if(sumMassValue5[2][1]<sumMassValue5[1][1]){
+        arr5Level[i] = sumMassValue5[1][1];
+        }
+    if(sumMassValue5[2][1]<sumMassValue5[0][1]){
+            arr5Level[i] = sumMassValue5[0][1];
+            }
+}
+if(arrMaximum_mass_value[i]>=sumMassValue5[3][0]){ //4
+   
+    arr5Level[i] = sumMassValue5[3][1];
+    if(sumMassValue5[3][1]<sumMassValue5[2][1]){
+        arr5Level[i] = sumMassValue5[2][1];
+        }
+    if(sumMassValue5[3][1]<sumMassValue5[1][1]){
+            arr5Level[i] = sumMassValue5[1][1];
+            }
+    if(sumMassValue5[3][1]<sumMassValue5[0][1]){
+                arr5Level[i] = sumMassValue5[0][1];
+                }
+}
+if(arrMaximum_mass_value[i]>=sumMassValue5[4][0]){ //5
+   
+    arr5Level[i] = sumMassValue5[4][1];
+    if(sumMassValue5[4][1]<sumMassValue5[3][1]){
+        arr5Level[i] = sumMassValue5[3][1];
+        }
+    if(sumMassValue5[4][1]<sumMassValue5[2][1]){
+            arr5Level[i] = sumMassValue5[2][1];
+            }
+    if(sumMassValue5[4][1]<sumMassValue5[1][1]){
+                arr5Level[i] = sumMassValue5[1][1];
+                }
+    if(sumMassValue5[4][1]<sumMassValue5[0][1]){
+                    arr5Level[i] = sumMassValue5[0][1];
+                    }
+}
+if(arrMaximum_mass_value[i]>=sumMassValue5[5][0]){ //6
+   
+    arr5Level[i] = sumMassValue5[5][1];
+    if(sumMassValue5[5][1]<sumMassValue5[4][1]){
+        arr5Level[i] = sumMassValue5[4][1];
+        }
+    if(sumMassValue5[5][1]<sumMassValue5[3][1]){
+            arr5Level[i] = sumMassValue5[3][1];
+            }
+    if(sumMassValue5[5][1]<sumMassValue5[2][1]){
+                arr5Level[i] = sumMassValue5[2][1];
+                }
+    if(sumMassValue5[5][1]<sumMassValue5[1][1]){
+                    arr5Level[i] = sumMassValue5[1][1];
+                    }
+    if(sumMassValue5[5][1]<sumMassValue5[0][1]){
+                        arr5Level[i] = sumMassValue5[0][1];
+                        }
+}
+
+if(arrMaximum_mass_value[i]>=sumMassValue5[6][0]){ //7
+   
+    arr5Level[i] = sumMassValue5[6][1];
+    if(sumMassValue5[6][1]<sumMassValue5[5][1]){
+        arr5Level[i] = sumMassValue5[5][1];
+        }
+
+    if(sumMassValue5[6][1]<sumMassValue5[4][1]){
+        arr5Level[i] = sumMassValue5[4][1];
+        }
+    if(sumMassValue5[6][1]<sumMassValue5[3][1]){
+            arr5Level[i] = sumMassValue5[3][1];
+            }
+    if(sumMassValue5[6][1]<sumMassValue5[2][1]){
+                arr5Level[i] = sumMassValue5[2][1];
+                }
+    if(sumMassValue5[6][1]<sumMassValue5[1][1]){
+                    arr5Level[i] = sumMassValue5[1][1];
+                    }
+    if(sumMassValue5[6][1]<sumMassValue5[0][1]){
+                        arr5Level[i] = sumMassValue5[0][1];
+                        }
+}
+
+if(arrMaximum_mass_value[i]>=sumMassValue5[7][0]){ //8
+    arr5Level[i] = sumMassValue5[7][1];
+
+    if(sumMassValue5[7][1]<sumMassValue5[6][1]){
+        arr5Level[i] = sumMassValue5[6][1];
+        }
+
+    if(sumMassValue5[7][1]<sumMassValue5[5][1]){
+        arr5Level[i] = sumMassValue5[5][1];
+        }
+
+    if(sumMassValue5[7][1]<sumMassValue5[4][1]){
+        arr5Level[i] = sumMassValue5[4][1];
+        }
+    if(sumMassValue5[7][1]<sumMassValue5[3][1]){
+            arr5Level[i] = sumMassValue5[3][1];
+            }
+    if(sumMassValue5[7][1]<sumMassValue5[2][1]){
+                arr5Level[i] = sumMassValue5[2][1];
+                }
+    if(sumMassValue5[7][1]<sumMassValue5[1][1]){
+                    arr5Level[i] = sumMassValue5[1][1];
+                    }
+    if(sumMassValue5[7][1]<sumMassValue5[0][1]){
+                        arr5Level[i] = sumMassValue5[0][1];
+                        }
+}
+
+if(arrMaximum_mass_value[i]>=sumMassValue5[8][0]){ //9
+    arr5Level[i] = sumMassValue5[8][1];
+
+    if(sumMassValue5[8][1]<sumMassValue5[7][1]){
+        arr5Level[i] = sumMassValue5[7][1];
+        }
+
+    if(sumMassValue5[8][1]<sumMassValue5[6][1]){
+        arr5Level[i] = sumMassValue5[6][1];
+        }
+
+    if(sumMassValue5[8][1]<sumMassValue5[5][1]){
+        arr5Level[i] = sumMassValue5[5][1];
+        }
+
+    if(sumMassValue5[8][1]<sumMassValue5[4][1]){
+        arr5Level[i] = sumMassValue5[4][1];
+        }
+    if(sumMassValue5[8][1]<sumMassValue5[3][1]){
+            arr5Level[i] = sumMassValue5[3][1];
+            }
+    if(sumMassValue5[8][1]<sumMassValue5[2][1]){
+                arr5Level[i] = sumMassValue5[2][1];
+                }
+    if(sumMassValue5[8][1]<sumMassValue5[1][1]){
+                    arr5Level[i] = sumMassValue5[1][1];
+                    }
+    if(sumMassValue5[8][1]<sumMassValue5[0][1]){
+                        arr5Level[i] = sumMassValue5[0][1];
+                        }
+}
+
+if(arrMaximum_mass_value[i]>=sumMassValue5[9][0]){ //10
+    arr5Level[i] = sumMassValue5[9][1];
+
+    if(sumMassValue5[9][1]<sumMassValue5[8][1]){
+        arr5Level[i] = sumMassValue5[8][1];
+        }
+
+    if(sumMassValue5[9][1]<sumMassValue5[7][1]){
+        arr5Level[i] = sumMassValue5[7][1];
+        }
+
+    if(sumMassValue5[9][1]<sumMassValue5[6][1]){
+        arr5Level[i] = sumMassValue5[6][1];
+        }
+
+    if(sumMassValue5[9][1]<sumMassValue5[5][1]){
+        arr5Level[i] = sumMassValue5[5][1];
+        }
+
+    if(sumMassValue5[9][1]<sumMassValue5[4][1]){
+        arr5Level[i] = sumMassValue5[4][1];
+        }
+    if(sumMassValue5[9][1]<sumMassValue5[3][1]){
+            arr5Level[i] = sumMassValue5[3][1];
+            }
+    if(sumMassValue5[9][1]<sumMassValue5[2][1]){
+                arr5Level[i] = sumMassValue5[2][1];
+                }
+    if(sumMassValue5[9][1]<sumMassValue5[1][1]){
+                    arr5Level[i] = sumMassValue5[1][1];
+                    }
+    if(sumMassValue5[9][1]<sumMassValue5[0][1]){
+                        arr5Level[i] = sumMassValue5[0][1];
+                        }
 }
 
 
