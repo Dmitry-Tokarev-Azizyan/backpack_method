@@ -111,6 +111,27 @@ const number4Level_15 = document.getElementById(`number4Level_15`);
 const number4Level_16 = document.getElementById(`number4Level_16`);
 const number4Level_17 = document.getElementById(`number4Level_17`);
 
+// Пятый уровень
+
+const number5Level_1 = document.getElementById(`number5Level_1`);
+const number5Level_2 = document.getElementById(`number5Level_2`);
+const number5Level_3 = document.getElementById(`number5Level_3`);
+const number5Level_4 = document.getElementById(`number5Level_4`);
+const number5Level_5 = document.getElementById(`number5Level_5`);
+const number5Level_6 = document.getElementById(`number5Level_6`);
+const number5Level_7 = document.getElementById(`number5Level_7`);
+const number5Level_8 = document.getElementById(`number5Level_8`);
+const number5Level_9 = document.getElementById(`number5Level_9`);
+const number5Level_10 = document.getElementById(`number5Level_10`);
+const number5Level_11 = document.getElementById(`number5Level_11`);
+const number5Level_12 = document.getElementById(`number5Level_12`);
+const number5Level_13 = document.getElementById(`number5Level_13`);
+const number5Level_14 = document.getElementById(`number5Level_14`);
+const number5Level_15 = document.getElementById(`number5Level_15`);
+const number5Level_16 = document.getElementById(`number5Level_16`);
+const number5Level_17 = document.getElementById(`number5Level_17`);
+
+
 //массив веса
 let arrWeight = [weight_1,weight_2,weight_3,weight_4,weight_5];
 let arrWeight_value = [];
@@ -235,6 +256,29 @@ number4Level_17
 
 let arr4Level = [];
 
+// Пятый уровень
+const arr5Level_dom = [
+    number5Level_1,
+    number5Level_2,
+    number5Level_3,
+    number5Level_4,
+    number5Level_5,
+    number5Level_6,
+    number5Level_7,
+    number5Level_8,
+    number5Level_9,
+    number5Level_10,
+    number5Level_11,
+    number5Level_12,
+    number5Level_13,
+    number5Level_14,
+    number5Level_15,
+    number5Level_16,
+    number5Level_17
+];
+
+let arr5Level = [];
+
  //магические цифры
 let minWeight; // Минимальное значение 
 let y = 0; // Временная переменная указывает 0.1 в плюс 
@@ -271,7 +315,7 @@ arrMaximum_mass[i].value = arrMaximum_mass_value[i];
 
 for(i=0;i<arrFirstLevel_dom.length; i++){
               arrFirstLevel[i] = 0;  
-    if(arrMaximum_mass_value[i]>=arrWeight_value [0]){
+    if(arrMaximum_mass_value[i]>=arrWeight_value[0]){
         arrFirstLevel[i] =  arrMax_value[0];
     }
 
@@ -362,7 +406,7 @@ let sumArr_3 = arrWeight_value[1]+arrWeight_value[2];
 let sumMAXArr_1 = arrMax_value[0]+arrMax_value[1];
 let sumMAXArr_2 = arrMax_value[0]+arrMax_value[2];
 let sumMAXArr_3 = arrMax_value[1]+arrMax_value[2];
-console.log(sumArr_1,sumArr_2,sumArr_3);
+//console.log(sumArr_1,sumArr_2,sumArr_3);
 // сумма
 
 if(sumArr_1<sumArr_2){  
@@ -371,7 +415,7 @@ if(sumArr_2<sumArr_3){   // 1-2-3
 if(arrMaximum_mass_value[i]>=sumArr_1){ //1
         arrThirdLevel[i] = sumMAXArr_1 ;
     }
-if(arrMaximum_mass_value[i]>=sumArr_2){ //  2
+if(arrMaximum_mass_value[i]>=sumArr_2){ //2
         arrThirdLevel[i] = sumMAXArr_2 ;
     }
 if(arrMaximum_mass_value[i]>=sumArr_3){// 3
@@ -380,13 +424,13 @@ if(arrMaximum_mass_value[i]>=sumArr_3){// 3
 }
 else{                    // 1-3-2
 
-    if(arrMaximum_mass_value[i]>=sumArr_1){ // 1
+    if(arrMaximum_mass_value[i]>=sumArr_1){ //1
         arrThirdLevel[i] = sumMAXArr_1 ;
     }
     if(arrMaximum_mass_value[i]>=sumArr_3){ //3
         arrThirdLevel[i] = sumMAXArr_3;
     }
-    if(arrMaximum_mass_value[i]>=sumArr_2){ // 2
+    if(arrMaximum_mass_value[i]>=sumArr_2){ //2
         arrThirdLevel[i] = sumMAXArr_2 ;
     }
 }
@@ -395,13 +439,13 @@ else{                    // 1-3-2
 if(sumArr_2<sumArr_3){
     if(sumArr_3<sumArr_1){ // 2-3-1
 
-        if(arrMaximum_mass_value[i]>=sumArr_2){ // 2
+    if(arrMaximum_mass_value[i]>=sumArr_2){ //2
             arrThirdLevel[i] = sumMAXArr_2;
         }
-    if(arrMaximum_mass_value[i]>=sumArr_3){ // 3
+    if(arrMaximum_mass_value[i]>=sumArr_3){ //3
             arrThirdLevel[i] = sumMAXArr_3;
         }
-    if(arrMaximum_mass_value[i]>=sumArr_1){// 1
+    if(arrMaximum_mass_value[i]>=sumArr_1){ //1
             arrThirdLevel[i] = sumMAXArr_1;
         }
     }
@@ -579,35 +623,189 @@ else{
 }
 }
 //новые переменные
-let sumArr_1_2 = arrWeight_value[0]+arrWeight_value[1]; //1+2
-let sumArr_1_3 = arrWeight_value[0]+arrWeight_value[2]; //1+3
-let sumArr_1_4 = arrWeight_value[0]+arrWeight_value[3]; //1+4
+let sumArr_1_2 = arrWeight_value[0]+arrWeight_value[1]; //1+2 v1
+let sumArr_1_3 = arrWeight_value[0]+arrWeight_value[2]; //1+3 v2
+let sumArr_1_4 = Number((arrWeight_value[0]+arrWeight_value[3]).toFixed(1)); //1+4 v3
 
-let sumArr_2_3 = arrWeight_value[1]+arrWeight_value[2]; //2+3
-let sumArr_2_4 = arrWeight_value[1]+arrWeight_value[3]; //2+4
+let sumArr_2_3 = arrWeight_value[1]+arrWeight_value[2]; //2+3 v4
 
-let sumArr_3_4 = arrWeight_value[2]+arrWeight_value[3]; //3+4
+let sumArr_2_4 = arrWeight_value[1]+arrWeight_value[3]; //2+4 v5
 
-
-let sumMAXArr_1_2 = arrMax_value[0]+arrMax_value[1]; //1+2
-let sumMAXArr_1_3 = arrMax_value[0]+arrMax_value[2]; //1+3
-let sumMAXArr_1_4 = arrMax_value[0]+arrMax_value[3]; //1+4
-
-let sumMAXArr_2_3 = arrMax_value[1]+arrMax_value[2]; //2+3
-let sumMAXArr_2_4 = arrMax_value[1]+arrMax_value[3]; //2+4
-
-let sumMAXArr_3_4 = arrMax_value[2]+arrMax_value[3]; //3+4
+let sumArr_3_4 = arrWeight_value[2]+arrWeight_value[3]; //3+4 v6
 
 
-console.log(sumArr_1_4,sumArr_2_4,sumArr_3_4);
+let sumMAXArr_1_2 = arrMax_value[0]+arrMax_value[1]; //1+2 v1
+let sumMAXArr_1_3 = arrMax_value[0]+arrMax_value[2]; //1+3 v2
+let sumMAXArr_1_4 = arrMax_value[0]+arrMax_value[3]; //1+4 v3
+
+let sumMAXArr_2_3 = arrMax_value[1]+arrMax_value[2]; //2+3 v4
+let sumMAXArr_2_4 = arrMax_value[1]+arrMax_value[3]; //2+4 v5
+
+let sumMAXArr_3_4 = arrMax_value[2]+arrMax_value[3]; //3+4 v6
+
+let masslevel4 = [sumArr_1_2,sumArr_1_3,sumArr_1_4,sumArr_2_3,sumArr_2_4,sumArr_3_4]
+const valuelevel4 = [sumMAXArr_1_2,sumMAXArr_1_3,sumMAXArr_1_4,sumMAXArr_2_3,sumMAXArr_2_4,sumMAXArr_3_4]
+const sumMassValue = [[masslevel4[0],sumMAXArr_1_2],[masslevel4[1],sumMAXArr_1_3],[masslevel4[2],sumMAXArr_1_4],[masslevel4[3],sumMAXArr_2_3],[masslevel4[4],sumMAXArr_2_4],[masslevel4[5],sumMAXArr_3_4]]
+
+function bubbleSortConcept1(arr) {
+    for (let j = arr.length - 1; j > 0; j--) {
+      for (let i = 0; i < j; i++) {
+        if (arr[i] > arr[i + 1]) {
+          let temp = arr[i];
+          arr[i] = arr[i + 1];
+          arr[i + 1] = temp;
+        }
+      }
+    }
+  }
+//console.log(arr4Level[i])
+ // console.log(arrMaximum_mass_value[i]);
+//console.log(masslevel4);
+//console.log(valuelevel4);
+  bubbleSortConcept1(sumMassValue);
+//console.log(masslevel4);
+  //console.log(sumMassValue);
+  //console.log(sumMassValue[0][0]);
+ // console.log(sumMassValue[0][1]);
+//console.log(sumMassValue[1][0]);
+ // console.log(sumMassValue)
+
+if(arrMaximum_mass_value[i]>=sumMassValue[0][0]){ //1
+    
+    arr4Level[i] = sumMassValue[0][1];
+
+}
+if(arrMaximum_mass_value[i]>=sumMassValue[1][0]){ //2
+    
+    arr4Level[i] = sumMassValue[1][1];
+    if(sumMassValue[1][1]<sumMassValue[0][1]){
+    arr4Level[i] = sumMassValue[0][1];
+    }
+
+}
+if(arrMaximum_mass_value[i]>=sumMassValue[2][0]){ //3
+    
+    arr4Level[i] = sumMassValue[2][1];
+    if(sumMassValue[2][1]<sumMassValue[1][1]){
+        arr4Level[i] = sumMassValue[1][1];
+        }
+    if(sumMassValue[2][1]<sumMassValue[0][1]){
+            arr4Level[i] = sumMassValue[0][1];
+            }
+}
+if(arrMaximum_mass_value[i]>=sumMassValue[3][0]){ //4
+   
+    arr4Level[i] = sumMassValue[3][1];
+    if(sumMassValue[3][1]<sumMassValue[2][1]){
+        arr4Level[i] = sumMassValue[2][1];
+        }
+    if(sumMassValue[3][1]<sumMassValue[1][1]){
+            arr4Level[i] = sumMassValue[1][1];
+            }
+    if(sumMassValue[3][1]<sumMassValue[0][1]){
+                arr4Level[i] = sumMassValue[0][1];
+                }
+}
+if(arrMaximum_mass_value[i]>=sumMassValue[4][0]){ //5
+   
+    arr4Level[i] = sumMassValue[4][1];
+    if(sumMassValue[4][1]<sumMassValue[3][1]){
+        arr4Level[i] = sumMassValue[3][1];
+        }
+    if(sumMassValue[4][1]<sumMassValue[2][1]){
+            arr4Level[i] = sumMassValue[2][1];
+            }
+    if(sumMassValue[4][1]<sumMassValue[1][1]){
+                arr4Level[i] = sumMassValue[1][1];
+                }
+    if(sumMassValue[4][1]<sumMassValue[0][1]){
+                    arr4Level[i] = sumMassValue[0][1];
+                    }
+}
+if(arrMaximum_mass_value[i]>=sumMassValue[5][0]){ //6
+   
+    arr4Level[i] = sumMassValue[5][1];
+    if(sumMassValue[5][1]<sumMassValue[4][1]){
+        arr4Level[i] = sumMassValue[4][1];
+        }
+    if(sumMassValue[5][1]<sumMassValue[3][1]){
+            arr4Level[i] = sumMassValue[3][1];
+            }
+    if(sumMassValue[5][1]<sumMassValue[2][1]){
+                arr4Level[i] = sumMassValue[2][1];
+                }
+    if(sumMassValue[5][1]<sumMassValue[1][1]){
+                    arr4Level[i] = sumMassValue[1][1];
+                    }
+    if(sumMassValue[5][1]<sumMassValue[0][1]){
+                        arr4Level[i] = sumMassValue[0][1];
+                        }
+}
+if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[2])){ // 
+    arr4Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[2]);//1+2+3
+}
+
+if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[3])){ // 
+    arr4Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[3]);//1+2+4
+    if((arrMax_value[0]+arrMax_value[1]+arrMax_value[3])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[2])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[2])){
+        arr4Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[2]);//1+2+3
+        }
+    }
+}
+
+if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[2]+arrWeight_value[3])){ // 
+    arr4Level[i] = (arrMax_value[0]+arrMax_value[2]+arrMax_value[3]);//1+3+4
+    if((arrMax_value[0]+arrMax_value[2]+arrMax_value[3])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[2])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[2])){
+        arr4Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[2]);//1+2+3
+        }
+    }
+    
+    if((arrMax_value[0]+arrMax_value[2]+arrMax_value[3])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[3])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[3])){
+        arr4Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[3]);//1+2+4
+        }
+    }
+    
+}
+
+if(arrMaximum_mass_value[i]>=(arrWeight_value[1]+arrWeight_value[2]+arrWeight_value[3])){ // 
+    arr4Level[i] = (arrMax_value[1]+arrMax_value[2]+arrMax_value[3]);//2+3+4
+    if((arrMax_value[1]+arrMax_value[2]+arrMax_value[3])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[2])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[2])){
+        arr4Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[2]);//1+2+3
+        }
+
+    if((arrMax_value[1]+arrMax_value[2]+arrMax_value[3])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[3])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[3])){
+        arr4Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[3]);//1+2+4
+        }
+    }
+}
+
+    if((arrMax_value[1]+arrMax_value[2]+arrMax_value[3])<(arrMax_value[0]+arrMax_value[2]+arrMax_value[3])){
+        if((arrMax_value[0]+arrMax_value[2]+arrMax_value[3])>(arrMax_value[0]+arrMax_value[1]+arrMax_value[3])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[2]+arrWeight_value[3])){
+
+        arr4Level[i] = (arrMax_value[0]+arrMax_value[2]+arrMax_value[3]);//1+3+4
+
+        }
+    }
+}
+
+}
+
+
 arr4Level_dom[i].value=arr4Level[i];
 
+//console.log(arrMaximum_mass_value[0])
 }
 
 
 
 
-
+//console.log(sumMAXArr_1_2,sumMAXArr_1_3,sumMAXArr_1_4,sumMAXArr_2_3,sumMAXArr_2_4,sumMAXArr_3_4);
 
 /*
 if(arrMaximum_mass_value[i]>=(arrWeight_value[1]+arrWeight_value[2])){//1.2 - 3
@@ -628,7 +826,23 @@ if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1])){ //1,5 - 1
 //console.log(arrMaximum_mass_value);
 
 //console.log(arrThirdLevel);
-console.log(arr4Level);
+
+
+
+//***Пятный, конечный расчет. 
+
+
+for(i=0; i<=arr5Level_dom.length; i++){
+    //заполнили нулями 
+    arr5Level[i] = 0;
+//первая деталь
+if(arrMaximum_mass_value[i]>=arrWeight_value[0]){
+    arr5Level[i] = arrMax_value[0];
+}
+
+arr5Level_dom[i].value=arr5Level[i];
+}
+console.log(arr5Level);
 
 }
 
