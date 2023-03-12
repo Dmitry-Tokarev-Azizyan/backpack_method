@@ -288,7 +288,7 @@ let y = 0; // Временная переменная указывает 0.1 в 
 
 function result(){
 
-console.log('начало') 
+//console.log('начало') 
 // заплнение массива массы
 for(let i=0; i<arrWeight.length; i++){
     arrWeight_value[i] = arrWeight[i].value;
@@ -631,14 +631,14 @@ let sumArr_1_4 = Number((arrWeight_value[0]+arrWeight_value[3]).toFixed(1)); //1
 
 let sumArr_2_3 = arrWeight_value[1]+arrWeight_value[2]; //2+3 v4
 
-let sumArr_2_4 = arrWeight_value[1]+arrWeight_value[3]; //2+4 v5
+let sumArr_2_4 = arrWeight_value[1]+arrWeight_value[3]; //2+4 v5**
 
 let sumArr_3_4 = arrWeight_value[2]+arrWeight_value[3]; //3+4 v6
 
 
 let sumMAXArr_1_2 = arrMax_value[0]+arrMax_value[1]; //1+2 v1
 let sumMAXArr_1_3 = arrMax_value[0]+arrMax_value[2]; //1+3 v2
-let sumMAXArr_1_4 = arrMax_value[0]+arrMax_value[3]; //1+4 v3
+let sumMAXArr_1_4 = arrMax_value[0]+arrMax_value[3]; //1+4 v3**
 
 let sumMAXArr_2_3 = arrMax_value[1]+arrMax_value[2]; //2+3 v4
 let sumMAXArr_2_4 = arrMax_value[1]+arrMax_value[3]; //2+4 v5
@@ -647,8 +647,16 @@ let sumMAXArr_3_4 = arrMax_value[2]+arrMax_value[3]; //3+4 v6
 
 let masslevel4 = [sumArr_1_2,sumArr_1_3,sumArr_1_4,sumArr_2_3,sumArr_2_4,sumArr_3_4]
 const valuelevel4 = [sumMAXArr_1_2,sumMAXArr_1_3,sumMAXArr_1_4,sumMAXArr_2_3,sumMAXArr_2_4,sumMAXArr_3_4]
-const sumMassValue = [[masslevel4[0],sumMAXArr_1_2],[masslevel4[1],sumMAXArr_1_3],[masslevel4[2],sumMAXArr_1_4],[masslevel4[3],sumMAXArr_2_3],[masslevel4[4],sumMAXArr_2_4],[masslevel4[5],sumMAXArr_3_4]]
-
+const sumMassValue = [
+[masslevel4[0],sumMAXArr_1_2],
+[masslevel4[1],sumMAXArr_1_3],
+[masslevel4[2],sumMAXArr_1_4],
+[masslevel4[3],sumMAXArr_2_3],
+[masslevel4[4],sumMAXArr_2_4],
+[masslevel4[5],sumMAXArr_3_4]
+]
+//console.log(masslevel4);
+//console.log(sumMassValue);
 function bubbleSortConcept1(arr) {
     for (let j = arr.length - 1; j > 0; j--) {
       for (let i = 0; i < j; i++) {
@@ -662,11 +670,11 @@ function bubbleSortConcept1(arr) {
   }
 //console.log(arr4Level[i])
  // console.log(arrMaximum_mass_value[i]);
+
+bubbleSortConcept1(sumMassValue);
 //console.log(masslevel4);
-//console.log(valuelevel4);
-  bubbleSortConcept1(sumMassValue);
-//console.log(masslevel4);
-  //console.log(sumMassValue);
+  //console.log(sumMassValue[4][1]);
+  //console.log(sumMassValue[1][1]);
   //console.log(sumMassValue[0][0]);
  // console.log(sumMassValue[0][1]);
 //console.log(sumMassValue[1][0]);
@@ -677,6 +685,7 @@ if(arrMaximum_mass_value[i]>=sumMassValue[0][0]){ //1
     arr4Level[i] = sumMassValue[0][1];
 
 }
+
 if(arrMaximum_mass_value[i]>=sumMassValue[1][0]){ //2
     
     arr4Level[i] = sumMassValue[1][1];
@@ -687,7 +696,7 @@ if(arrMaximum_mass_value[i]>=sumMassValue[1][0]){ //2
 }
 if(arrMaximum_mass_value[i]>=sumMassValue[2][0]){ //3
     
-    arr4Level[i] = sumMassValue[2][1];
+   arr4Level[i] = sumMassValue[2][1];
     if(sumMassValue[2][1]<sumMassValue[1][1]){
         arr4Level[i] = sumMassValue[1][1];
         }
@@ -698,12 +707,14 @@ if(arrMaximum_mass_value[i]>=sumMassValue[2][0]){ //3
 if(arrMaximum_mass_value[i]>=sumMassValue[3][0]){ //4
    
     arr4Level[i] = sumMassValue[3][1];
-    if(sumMassValue[3][1]<sumMassValue[2][1]){
+   if(sumMassValue[3][1]<sumMassValue[2][1]){
         arr4Level[i] = sumMassValue[2][1];
         }
+        
     if(sumMassValue[3][1]<sumMassValue[1][1]){
             arr4Level[i] = sumMassValue[1][1];
             }
+            
     if(sumMassValue[3][1]<sumMassValue[0][1]){
                 arr4Level[i] = sumMassValue[0][1];
                 }
@@ -717,9 +728,11 @@ if(arrMaximum_mass_value[i]>=sumMassValue[4][0]){ //5
     if(sumMassValue[4][1]<sumMassValue[2][1]){
             arr4Level[i] = sumMassValue[2][1];
             }
+            /*
     if(sumMassValue[4][1]<sumMassValue[1][1]){
                 arr4Level[i] = sumMassValue[1][1];
                 }
+                */
     if(sumMassValue[4][1]<sumMassValue[0][1]){
                     arr4Level[i] = sumMassValue[0][1];
                     }
@@ -799,7 +812,7 @@ if(arrMaximum_mass_value[i]>=(arrWeight_value[1]+arrWeight_value[2]+arrWeight_va
 }
 
 //arr44level_dom[i].value=arr4Level[i];
-console.log('четвертый уровень')
+//console.log('четвертый уровень')
 }
 //Костыль - 
 arr44level_dom[0].value=arr4Level[0];  
@@ -823,7 +836,7 @@ arr44level_dom[16].value=arr4Level[16];
 
 
 
-console.log('конец')
+//console.log('конец')
 
 
 //***Пятный, конечный расчет. 
@@ -960,9 +973,9 @@ let summArr_1_4 = Number((arrWeight_value[0]+arrWeight_value[3]).toFixed(1)); //
 
 let summArr_2_3 = arrWeight_value[1]+arrWeight_value[2]; //2+3 v4
 
-let summArr_2_4 = arrWeight_value[1]+arrWeight_value[3]; //2+4 v5
+let summArr_2_4 = Number((arrWeight_value[1]+arrWeight_value[3]).toFixed(1)); //2+4 v5
 
-let summArr_3_4 = arrWeight_value[2]+arrWeight_value[3]; //3+4 v6
+let summArr_3_4 = Number((arrWeight_value[2]+arrWeight_value[3]).toFixed(1)); //3+4 v6
 
 let summArr_1_5 = arrWeight_value[0]+arrWeight_value[4]; //1+5 v7 *******
 
@@ -970,7 +983,7 @@ let summArr_2_5 = arrWeight_value[1]+arrWeight_value[4]; //2+5 v8 ********
 
 let summArr_3_5 = arrWeight_value[2]+arrWeight_value[4]; //3+5 v9 ********
 
-let summArr_4_5 = arrWeight_value[3]+arrWeight_value[4]; //4+5 v10 ********
+let summArr_4_5 =  Number((arrWeight_value[3]+arrWeight_value[4]).toFixed(1)); //4+5 v10 ********
 
 let summMAXArr_1_2 = arrMax_value[0]+arrMax_value[1]; //1+2 v1
 let summMAXArr_1_3 = arrMax_value[0]+arrMax_value[2]; //1+3 v2
@@ -1004,7 +1017,7 @@ let masslevel5 = [
     summArr_4_5
 ]
 //const valuelevel5 = [summMAXArr_1_2,summMAXArr_1_3,summMAXArr_1_4,summMAXArr_2_3,summMAXArr_2_4,summMAXArr_3_4]
-const sumMassValue5 = [
+let sumMassValue5 = [
     [masslevel5[0],summMAXArr_1_2],
     [masslevel5[1],summMAXArr_1_3],
     [masslevel5[2],summMAXArr_1_4],
@@ -1016,6 +1029,10 @@ const sumMassValue5 = [
     [masslevel5[8],summMAXArr_3_5],
     [masslevel5[9],summMAXArr_4_5],
 ]
+
+//console.log(masslevel5);
+//console.log(`массив до`);
+//console.log(sumMassValue5);
 
 function bubbleSortConcept5(arr) {
     for (let j = arr.length - 1; j > 0; j--) {
@@ -1031,14 +1048,18 @@ function bubbleSortConcept5(arr) {
 //console.log(arr4Level[i])
  // console.log(arrMaximum_mass_value[i]);
 //console.log(masslevel4);
-//console.log(valuelevel4);
-  bubbleSortConcept5(sumMassValue5);
+
+
+bubbleSortConcept5(sumMassValue5);
 //console.log(masslevel4);
-  //console.log(sumMassValue);
-  //console.log(sumMassValue[0][0]);
- // console.log(sumMassValue[0][1]);
+
+//console.log(`массив после`);
+  //console.log(sumMassValue5);
+  //console.log(sumMassValue5[0][0]);
+// console.log(sumMassValue5[0][1]);
 //console.log(sumMassValue[1][0]);
  // console.log(sumMassValue)
+
 
 if(arrMaximum_mass_value[i]>=sumMassValue5[0][0]){ //1
     
@@ -1066,12 +1087,16 @@ if(arrMaximum_mass_value[i]>=sumMassValue5[2][0]){ //3
 if(arrMaximum_mass_value[i]>=sumMassValue5[3][0]){ //4
    
     arr5Level[i] = sumMassValue5[3][1];
+    
     if(sumMassValue5[3][1]<sumMassValue5[2][1]){
         arr5Level[i] = sumMassValue5[2][1];
         }
+       
+        
     if(sumMassValue5[3][1]<sumMassValue5[1][1]){
             arr5Level[i] = sumMassValue5[1][1];
             }
+            
     if(sumMassValue5[3][1]<sumMassValue5[0][1]){
                 arr5Level[i] = sumMassValue5[0][1];
                 }
@@ -1079,15 +1104,20 @@ if(arrMaximum_mass_value[i]>=sumMassValue5[3][0]){ //4
 if(arrMaximum_mass_value[i]>=sumMassValue5[4][0]){ //5
    
     arr5Level[i] = sumMassValue5[4][1];
+    
     if(sumMassValue5[4][1]<sumMassValue5[3][1]){
         arr5Level[i] = sumMassValue5[3][1];
         }
+        
     if(sumMassValue5[4][1]<sumMassValue5[2][1]){
             arr5Level[i] = sumMassValue5[2][1];
             }
+            
+            
     if(sumMassValue5[4][1]<sumMassValue5[1][1]){
                 arr5Level[i] = sumMassValue5[1][1];
                 }
+                
     if(sumMassValue5[4][1]<sumMassValue5[0][1]){
                     arr5Level[i] = sumMassValue5[0][1];
                     }
@@ -1098,15 +1128,20 @@ if(arrMaximum_mass_value[i]>=sumMassValue5[5][0]){ //6
     if(sumMassValue5[5][1]<sumMassValue5[4][1]){
         arr5Level[i] = sumMassValue5[4][1];
         }
+        
     if(sumMassValue5[5][1]<sumMassValue5[3][1]){
             arr5Level[i] = sumMassValue5[3][1];
             }
+            
     if(sumMassValue5[5][1]<sumMassValue5[2][1]){
                 arr5Level[i] = sumMassValue5[2][1];
                 }
+              
     if(sumMassValue5[5][1]<sumMassValue5[1][1]){
                     arr5Level[i] = sumMassValue5[1][1];
                     }
+                 
+                    
     if(sumMassValue5[5][1]<sumMassValue5[0][1]){
                         arr5Level[i] = sumMassValue5[0][1];
                         }
@@ -1122,15 +1157,21 @@ if(arrMaximum_mass_value[i]>=sumMassValue5[6][0]){ //7
     if(sumMassValue5[6][1]<sumMassValue5[4][1]){
         arr5Level[i] = sumMassValue5[4][1];
         }
+        /*
     if(sumMassValue5[6][1]<sumMassValue5[3][1]){
             arr5Level[i] = sumMassValue5[3][1];
             }
+            */
+            
     if(sumMassValue5[6][1]<sumMassValue5[2][1]){
                 arr5Level[i] = sumMassValue5[2][1];
                 }
+                
+                /*
     if(sumMassValue5[6][1]<sumMassValue5[1][1]){
                     arr5Level[i] = sumMassValue5[1][1];
                     }
+                    */
     if(sumMassValue5[6][1]<sumMassValue5[0][1]){
                         arr5Level[i] = sumMassValue5[0][1];
                         }
@@ -1153,9 +1194,11 @@ if(arrMaximum_mass_value[i]>=sumMassValue5[7][0]){ //8
     if(sumMassValue5[7][1]<sumMassValue5[3][1]){
             arr5Level[i] = sumMassValue5[3][1];
             }
+            
     if(sumMassValue5[7][1]<sumMassValue5[2][1]){
                 arr5Level[i] = sumMassValue5[2][1];
                 }
+                
     if(sumMassValue5[7][1]<sumMassValue5[1][1]){
                     arr5Level[i] = sumMassValue5[1][1];
                     }
@@ -1185,9 +1228,11 @@ if(arrMaximum_mass_value[i]>=sumMassValue5[8][0]){ //9
     if(sumMassValue5[8][1]<sumMassValue5[3][1]){
             arr5Level[i] = sumMassValue5[3][1];
             }
+            
     if(sumMassValue5[8][1]<sumMassValue5[2][1]){
                 arr5Level[i] = sumMassValue5[2][1];
                 }
+                
     if(sumMassValue5[8][1]<sumMassValue5[1][1]){
                     arr5Level[i] = sumMassValue5[1][1];
                     }
@@ -1221,9 +1266,11 @@ if(arrMaximum_mass_value[i]>=sumMassValue5[9][0]){ //10
     if(sumMassValue5[9][1]<sumMassValue5[3][1]){
             arr5Level[i] = sumMassValue5[3][1];
             }
+            
     if(sumMassValue5[9][1]<sumMassValue5[2][1]){
                 arr5Level[i] = sumMassValue5[2][1];
                 }
+                
     if(sumMassValue5[9][1]<sumMassValue5[1][1]){
                     arr5Level[i] = sumMassValue5[1][1];
                     }
@@ -1232,6 +1279,348 @@ if(arrMaximum_mass_value[i]>=sumMassValue5[9][0]){ //10
                         }
 }
 
+//123
+if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[2])){ // 
+    arr5Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[2]);//1+2+3
+}
+//124
+if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[3])){ // 
+    arr5Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[3]);//1+2+4
+    if((arrMax_value[0]+arrMax_value[1]+arrMax_value[3])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[2])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[2])){
+        arr5Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[2]);//1+2+3
+        }
+    }
+}
+
+//134
+if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[2]+arrWeight_value[3])){ // 
+    arr5Level[i] = (arrMax_value[0]+arrMax_value[2]+arrMax_value[3]);//1+3+4
+    if((arrMax_value[0]+arrMax_value[2]+arrMax_value[3])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[2])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[2])){
+        arr5Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[2]);//1+2+3
+        }
+    }
+    
+    if((arrMax_value[0]+arrMax_value[2]+arrMax_value[3])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[3])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[3])){
+        arr5Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[3]);//1+2+4
+        }
+    } 
+}
+
+//234
+if(arrMaximum_mass_value[i]>=(arrWeight_value[1]+arrWeight_value[2]+arrWeight_value[3])){ // 
+    arr5Level[i] = (arrMax_value[1]+arrMax_value[2]+arrMax_value[3]);//2+3+4
+    if((arrMax_value[1]+arrMax_value[2]+arrMax_value[3])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[2])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[2])){
+        arr5Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[2]);//1+2+3
+        }
+
+    if((arrMax_value[1]+arrMax_value[2]+arrMax_value[3])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[3])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[3])){
+        arr5Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[3]);//1+2+4
+        }
+    }
+}
+
+
+if((arrMax_value[1]+arrMax_value[2]+arrMax_value[3])<(arrMax_value[0]+arrMax_value[2]+arrMax_value[3])){
+    if((arrMax_value[0]+arrMax_value[2]+arrMax_value[3])>(arrMax_value[0]+arrMax_value[1]+arrMax_value[3])){
+    if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[2]+arrWeight_value[3])){
+
+        arr5Level[i] = (arrMax_value[0]+arrMax_value[2]+arrMax_value[3]);//1+3+4
+
+    }
+}
+}
+    
+
+}
+
+//125
+if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[4])){
+arr5Level[i] = (arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[4])//125
+if((arrMax_value[0]+arrMax_value[1]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[2])){
+    if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[2])){
+    arr5Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[2]);//1+2+3
+    }
+
+if((arrMax_value[0]+arrMax_value[1]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[3])){
+    if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[3])){
+    arr5Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[3]);//1+2+4
+    }
+}
+}
+
+if((arrMax_value[0]+arrMax_value[1]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[2]+arrMax_value[3])){
+    if((arrMax_value[0]+arrMax_value[2]+arrMax_value[3])>(arrMax_value[0]+arrMax_value[1]+arrMax_value[3])){
+    if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[2]+arrWeight_value[3])){
+
+    arr5Level[i] = (arrMax_value[0]+arrMax_value[2]+arrMax_value[3]);//1+3+4
+
+    }
+}
+}
+
+if((arrMax_value[0]+arrMax_value[1]+arrMax_value[4])<(arrMax_value[1]+arrMax_value[2]+arrMax_value[3])){
+    if(arrMaximum_mass_value[i]>=(arrWeight_value[1]+arrWeight_value[2]+arrWeight_value[3])){
+
+        arr5Level[i] = (arrMax_value[1]+arrMax_value[2]+arrMax_value[3]);//2+3+4
+    
+        } 
+
+}
+//234
+
+}
+
+
+//145
+if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[3]+arrWeight_value[4])){
+    arr5Level[i] = arrMax_value[0]+arrMax_value[3]+arrMax_value[4]//145
+    
+    if((arrMax_value[0]+arrMax_value[3]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[2])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[2])){
+        arr5Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[2]);//1+2+3
+        }
+    
+    if((arrMax_value[0]+arrMax_value[3]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[3])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[3])){
+        arr5Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[3]);//1+2+4
+        }
+    }
+    }
+    
+    if((arrMax_value[0]+arrMax_value[3]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[2]+arrMax_value[3])){
+        if((arrMax_value[0]+arrMax_value[2]+arrMax_value[3])>(arrMax_value[0]+arrMax_value[1]+arrMax_value[3])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[2]+arrWeight_value[3])){
+    
+        arr5Level[i] = (arrMax_value[0]+arrMax_value[2]+arrMax_value[3]);//1+3+4
+    
+        }
+    }
+    }
+    
+    if((arrMax_value[0]+arrMax_value[3]+arrMax_value[4])<(arrMax_value[1]+arrMax_value[2]+arrMax_value[3])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[1]+arrWeight_value[2]+arrWeight_value[3])){
+    
+            arr5Level[i] = (arrMax_value[1]+arrMax_value[2]+arrMax_value[3]);//2+3+4
+        
+            } 
+    
+    }
+    if((arrMax_value[0]+arrMax_value[3]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[4])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[4])){
+    
+            arr5Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[4]);//125
+        
+            } 
+    
+    }
+    //234 
+    }
+
+    //135
+    if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[2]+arrWeight_value[4])){
+        arr5Level[i] = arrMax_value[0]+arrMax_value[2]+arrMax_value[4]//145
+        
+        if((arrMax_value[0]+arrMax_value[2]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[2])){
+            if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[2])){
+            arr5Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[2]);//1+2+3
+            }
+        
+        if((arrMax_value[0]+arrMax_value[2]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[3])){
+            if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[3])){
+            arr5Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[3]);//1+2+4
+            }
+        }
+        }
+        
+        if((arrMax_value[0]+arrMax_value[2]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[2]+arrMax_value[3])){
+            if((arrMax_value[0]+arrMax_value[2]+arrMax_value[3])>(arrMax_value[0]+arrMax_value[1]+arrMax_value[3])){
+            if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[2]+arrWeight_value[3])){
+        
+            arr5Level[i] = (arrMax_value[0]+arrMax_value[2]+arrMax_value[3]);//1+3+4
+        
+            }
+        }
+        }
+        
+        if((arrMax_value[0]+arrMax_value[2]+arrMax_value[4])<(arrMax_value[1]+arrMax_value[2]+arrMax_value[3])){
+            if(arrMaximum_mass_value[i]>=(arrWeight_value[1]+arrWeight_value[2]+arrWeight_value[3])){
+        
+                arr5Level[i] = (arrMax_value[1]+arrMax_value[2]+arrMax_value[3]);//2+3+4
+            
+                } 
+        
+        }
+        if((arrMax_value[0]+arrMax_value[2]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[4])){
+            if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[4])){
+        
+                arr5Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[4]);//125
+            
+                } 
+        
+        } 
+
+        if((arrMax_value[0]+arrMax_value[2]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[3]+arrMax_value[4])){
+            if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[3]+arrWeight_value[4])){
+        
+                arr5Level[i] = (arrMax_value[0]+arrMax_value[3]+arrMax_value[4]);//145 
+            
+                } 
+        
+        }
+        //145 
+        }
+
+        //345
+
+    //345
+    if(arrMaximum_mass_value[i]>=(arrWeight_value[2]+arrWeight_value[3]+arrWeight_value[4])){
+        arr5Level[i] = arrMax_value[2]+arrMax_value[3]+arrMax_value[4]//345
+        
+        if((arrMax_value[2]+arrMax_value[3]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[2])){
+            if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[2])){
+            arr5Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[2]);//1+2+3
+            }
+        }
+        if((arrMax_value[2]+arrMax_value[3]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[3])){
+            if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[3])){
+            arr5Level[i] = arrMax_value[0]+arrMax_value[1]+arrMax_value[3];//1+2+4
+            }
+        }
+        if((arrMax_value[2]+arrMax_value[3]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[2]+arrMax_value[3])){
+            if((arrMax_value[0]+arrMax_value[2]+arrMax_value[3])>(arrMax_value[0]+arrMax_value[1]+arrMax_value[3])){
+            if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[2]+arrWeight_value[3])){
+        
+            arr5Level[i] = (arrMax_value[0]+arrMax_value[2]+arrMax_value[3]);//1+3+4
+        
+            }
+        }
+        }
+        
+        if((arrMax_value[2]+arrMax_value[3]+arrMax_value[4])<(arrMax_value[1]+arrMax_value[2]+arrMax_value[3])){
+            if(arrMaximum_mass_value[i]>=(arrWeight_value[1]+arrWeight_value[2]+arrWeight_value[3])){
+        
+                arr5Level[i] = (arrMax_value[1]+arrMax_value[2]+arrMax_value[3]);//2+3+4
+            
+                } 
+        
+        }
+        if((arrMax_value[2]+arrMax_value[3]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[4])){
+            if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[4])){
+        
+                arr5Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[4]);//125
+            
+                } 
+        
+        } 
+
+        if((arrMax_value[2]+arrMax_value[3]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[3]+arrMax_value[4])){
+            if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[3]+arrWeight_value[4])){
+        
+                arr5Level[i] = (arrMax_value[0]+arrMax_value[3]+arrMax_value[4]);//145 
+            
+                } 
+        
+        }
+
+
+        if((arrMax_value[2]+arrMax_value[3]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[2]+arrMax_value[4])){
+            if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[2]+arrWeight_value[4])){
+        
+                arr5Level[i] = (arrMax_value[0]+arrMax_value[2]+arrMax_value[4]);//135 
+            
+                } 
+        
+        }
+        //135 
+
+console.log((Number(arrWeight_value[1]+arrWeight_value[3]+arrWeight_value[4])).toFixed(1))
+console.log(arrMax_value[1]+arrMax_value[3]+arrMax_value[4])
+//245
+if(arrMaximum_mass_value[i]>=(Number(arrWeight_value[1]+arrWeight_value[3]+arrWeight_value[4])).toFixed(1)){
+    arr5Level[i] = arrMax_value[1]+arrMax_value[3]+arrMax_value[4]//345
+    
+    if((arrMax_value[1]+arrMax_value[3]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[2])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[2])){
+        arr5Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[2]);//1+2+3
+        }
+    }
+    if((arrMax_value[1]+arrMax_value[3]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[3])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[3])){
+        arr5Level[i] = arrMax_value[0]+arrMax_value[1]+arrMax_value[3];//1+2+4
+        }
+    }
+    if((arrMax_value[1]+arrMax_value[3]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[2]+arrMax_value[3])){
+        if((arrMax_value[0]+arrMax_value[2]+arrMax_value[3])>(arrMax_value[0]+arrMax_value[1]+arrMax_value[3])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[2]+arrWeight_value[3])){
+    
+        arr5Level[i] = (arrMax_value[0]+arrMax_value[2]+arrMax_value[3]);//1+3+4
+    
+        }
+    }
+    }
+    
+    if((arrMax_value[1]+arrMax_value[3]+arrMax_value[4])<(arrMax_value[1]+arrMax_value[2]+arrMax_value[3])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[1]+arrWeight_value[2]+arrWeight_value[3])){
+    
+            arr5Level[i] = (arrMax_value[1]+arrMax_value[2]+arrMax_value[3]);//2+3+4
+        
+            } 
+    
+    }
+    if((arrMax_value[1]+arrMax_value[3]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[1]+arrMax_value[4])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[1]+arrWeight_value[4])){
+    
+            arr5Level[i] = (arrMax_value[0]+arrMax_value[1]+arrMax_value[4]);//125
+        
+            } 
+    
+    } 
+
+    if((arrMax_value[1]+arrMax_value[3]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[3]+arrMax_value[4])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[3]+arrWeight_value[4])){
+    
+            arr5Level[i] = (arrMax_value[0]+arrMax_value[3]+arrMax_value[4]);//145 
+        
+            } 
+    
+    }
+
+
+    if((arrMax_value[1]+arrMax_value[3]+arrMax_value[4])<(arrMax_value[0]+arrMax_value[2]+arrMax_value[4])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[2]+arrWeight_value[4])){
+    
+            arr5Level[i] = (arrMax_value[0]+arrMax_value[2]+arrMax_value[4]);//135 
+        
+            } 
+    
+    }
+    //345
+    if((arrMax_value[1]+arrMax_value[3]+arrMax_value[4])<(arrMax_value[2]+arrMax_value[3]+arrMax_value[4])){
+        if(arrMaximum_mass_value[i]>=(arrWeight_value[2]+arrWeight_value[3]+arrWeight_value[4])){
+    
+            arr5Level[i] = (arrMax_value[2]+arrMax_value[3]+arrMax_value[4]);//345
+        
+            } 
+    
+    }
+
+        
+    }
+   
+
+    }
+
+
+
+
+
+
+//
 
 }
 //Костыль - 
