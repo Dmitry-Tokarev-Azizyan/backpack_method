@@ -1814,6 +1814,18 @@ for(let i=0;i<arrMaximum_mass.length;i++){
         arrMaximum_mass[15].value = arrMaximum_mass_value[15];
         arrMaximum_mass[16].value = arrMaximum_mass_value[16];
 
+        weight_1.value='';
+        weight_2.value='';
+        weight_3.value='';
+        weight_4.value='';
+        weight_5.value='';
+
+        max_1.value='';
+        max_2.value='';
+        max_3.value='';
+        max_4.value='';
+        max_5.value='';
+
 
     //console.log(arrFirstLevel);
    // console.log(arrSecondLevel);
