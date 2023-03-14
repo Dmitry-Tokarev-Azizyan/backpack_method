@@ -288,6 +288,8 @@ let y = 0; // Временная переменная указывает 0.1 в 
 
 function result(){
 
+
+console.log(arrMaximum_mass_value)
 //console.log('начало') 
 // заплнение массива массы
 for(let i=0; i<arrWeight.length; i++){
@@ -1538,8 +1540,8 @@ if(arrMaximum_mass_value[i]>=(arrWeight_value[0]+arrWeight_value[3]+arrWeight_va
         }
         //135 
 
-console.log((Number(arrWeight_value[1]+arrWeight_value[3]+arrWeight_value[4])).toFixed(1))
-console.log(arrMax_value[1]+arrMax_value[3]+arrMax_value[4])
+//console.log((Number(arrWeight_value[1]+arrWeight_value[3]+arrWeight_value[4])).toFixed(1))
+//console.log(arrMax_value[1]+arrMax_value[3]+arrMax_value[4])
 //245
 if(arrMaximum_mass_value[i]>=(Number(arrWeight_value[1]+arrWeight_value[3]+arrWeight_value[4])).toFixed(1)){
     arr5Level[i] = arrMax_value[1]+arrMax_value[3]+arrMax_value[4]//345
@@ -1642,6 +1644,166 @@ arr5Level_dom[14].value=arr5Level[14];
 arr5Level_dom[15].value=arr5Level[15];   
 arr5Level_dom[16].value=arr5Level[16];  
 
+
+
+}
+function closer(){
+arrWeight_value = [];
+arrMaximum_mass_value = [];
+arrMax_value = [];
+arrFirstLevel = [];
+arrSecondLevel = [];
+arrThirdLevel = [];
+arr4Level = []; 
+arr5Level = []; 
+
+
+
+
+
+for(i=0; i<=arrFirstLevel_dom.length; i++){
+    //заполнили нулями 
+    arrFirstLevel[i] = 0;
+    
+  }
+
+for(i=0; i<=arrSecondLevel_dom.length; i++){
+    //заполнили нулями 
+    arrSecondLevel[i] = 0;
+   
+  }
+
+for(i=0; i<=arrThirdLevel_dom.length; i++){
+        //заполнили нулями 
+        arrThirdLevel[i] = 0; 
+       
+     }
+
+for(i=0; i<=arr44level_dom.length; i++){
+    //заполнили нулями 
+    arr4Level[i] = 0; 
+    //arr4Level_dom[i].value=arr4Level[i];
+ }
+
+for(i=0; i<=arr5Level_dom.length; i++){
+    //заполнили нулями 
+    arr5Level[i] = 0; 
+    //arr5Level_dom[i].value=arr5Level[i]; 
+}
+
+
+arrFirstLevel_dom[0].value=arrFirstLevel[0];
+arrFirstLevel_dom[1].value=arrFirstLevel[1];
+arrFirstLevel_dom[2].value=arrFirstLevel[2];
+arrFirstLevel_dom[3].value=arrFirstLevel[3];
+arrFirstLevel_dom[4].value=arrFirstLevel[4];
+arrFirstLevel_dom[5].value=arrFirstLevel[5];
+arrFirstLevel_dom[6].value=arrFirstLevel[6];
+arrFirstLevel_dom[7].value=arrFirstLevel[7];
+arrFirstLevel_dom[8].value=arrFirstLevel[8];
+arrFirstLevel_dom[9].value=arrFirstLevel[9];
+arrFirstLevel_dom[10].value=arrFirstLevel[10];
+arrFirstLevel_dom[11].value=arrFirstLevel[11];
+arrFirstLevel_dom[12].value=arrFirstLevel[12];
+arrFirstLevel_dom[13].value=arrFirstLevel[13];
+arrFirstLevel_dom[14].value=arrFirstLevel[14];
+arrFirstLevel_dom[15].value=arrFirstLevel[15];
+arrFirstLevel_dom[16].value=arrFirstLevel[16];
+
+arrSecondLevel_dom[0].value=arrSecondLevel[0];
+arrSecondLevel_dom[1].value=arrSecondLevel[1];
+arrSecondLevel_dom[2].value=arrSecondLevel[2];
+arrSecondLevel_dom[3].value=arrSecondLevel[3];
+arrSecondLevel_dom[4].value=arrSecondLevel[4];
+arrSecondLevel_dom[5].value=arrSecondLevel[5];
+arrSecondLevel_dom[6].value=arrSecondLevel[6];
+arrSecondLevel_dom[7].value=arrSecondLevel[7];
+arrSecondLevel_dom[8].value=arrSecondLevel[8];
+arrSecondLevel_dom[9].value=arrSecondLevel[9];
+arrSecondLevel_dom[10].value=arrSecondLevel[10];
+arrSecondLevel_dom[11].value=arrSecondLevel[11];
+arrSecondLevel_dom[12].value=arrSecondLevel[12];
+arrSecondLevel_dom[13].value=arrSecondLevel[13];
+arrSecondLevel_dom[14].value=arrSecondLevel[14];
+arrSecondLevel_dom[15].value=arrSecondLevel[15];
+arrSecondLevel_dom[16].value=arrSecondLevel[16];
+
+arrThirdLevel_dom[0].value=arrThirdLevel[0];
+arrThirdLevel_dom[1].value=arrThirdLevel[1];
+arrThirdLevel_dom[2].value=arrThirdLevel[2];
+arrThirdLevel_dom[3].value=arrThirdLevel[3];
+arrThirdLevel_dom[4].value=arrThirdLevel[4];
+arrThirdLevel_dom[5].value=arrThirdLevel[5];
+arrThirdLevel_dom[6].value=arrThirdLevel[6];
+arrThirdLevel_dom[7].value=arrThirdLevel[7];
+arrThirdLevel_dom[8].value=arrThirdLevel[8];
+arrThirdLevel_dom[9].value=arrThirdLevel[9];
+arrThirdLevel_dom[10].value=arrThirdLevel[10];
+arrThirdLevel_dom[11].value=arrThirdLevel[11];
+arrThirdLevel_dom[12].value=arrThirdLevel[12];
+arrThirdLevel_dom[13].value=arrThirdLevel[13];
+arrThirdLevel_dom[14].value=arrThirdLevel[14];
+arrThirdLevel_dom[15].value=arrThirdLevel[15];
+arrThirdLevel_dom[16].value=arrThirdLevel[16];
+
+arr44level_dom[0].value=arr4Level[0];
+arr44level_dom[1].value=arr4Level[1];
+arr44level_dom[2].value=arr4Level[2];
+arr44level_dom[3].value=arr4Level[3];
+arr44level_dom[4].value=arr4Level[4];
+arr44level_dom[5].value=arr4Level[5];
+arr44level_dom[6].value=arr4Level[6];
+arr44level_dom[7].value=arr4Level[7];
+arr44level_dom[8].value=arr4Level[8];
+arr44level_dom[9].value=arr4Level[9];
+arr44level_dom[10].value=arr4Level[10];
+arr44level_dom[11].value=arr4Level[11];
+arr44level_dom[12].value=arr4Level[12];
+arr44level_dom[13].value=arr4Level[13];
+arr44level_dom[14].value=arr4Level[14];
+arr44level_dom[15].value=arr4Level[15];
+arr44level_dom[16].value=arr4Level[16];
+
+
+arr5Level_dom[0].value=arr5Level[0];
+arr5Level_dom[1].value=arr5Level[1];
+arr5Level_dom[2].value=arr5Level[2];
+arr5Level_dom[3].value=arr5Level[3];
+arr5Level_dom[4].value=arr5Level[4];
+arr5Level_dom[5].value=arr5Level[5];
+arr5Level_dom[6].value=arr5Level[6];
+arr5Level_dom[7].value=arr5Level[7];
+arr5Level_dom[8].value=arr5Level[8];
+arr5Level_dom[9].value=arr5Level[9];
+arr5Level_dom[10].value=arr5Level[10];
+arr5Level_dom[11].value=arr5Level[11];
+arr5Level_dom[12].value=arr5Level[12];
+arr5Level_dom[13].value=arr5Level[13];
+arr5Level_dom[14].value=arr5Level[14];
+arr5Level_dom[15].value=arr5Level[15];
+arr5Level_dom[16].value=arr5Level[16];
+
+for(let i=0;i<arrMaximum_mass.length;i++){
+    arrMaximum_mass_value[i] = 0;
+    arrMaximum_mass[i].value = arrMaximum_mass_value[i];
+    
+    }
+    for(let i=0;i<arrMaximum_mass.length;i++){
+        minWeight = 0;
+        arrMaximum_mass_value[i] = minWeight;
+        arrMaximum_mass[i].value = arrMaximum_mass_value[i];
+        }
+
+
+
+
+    //console.log(arrFirstLevel);
+   // console.log(arrSecondLevel);
+   // console.log(arrThirdLevel);
+    //console.log(arr4Level);
+   // console.log(arr5Level);
+    console.log(arrMaximum_mass_value);
+    console.log(arrMaximum_mass);
 
 
 }
