@@ -1648,6 +1648,7 @@ arr5Level_dom[16].value=arr5Level[16];
 
 }
 function closer(){
+
 arrWeight_value = [];
 arrMaximum_mass_value = [];
 arrMax_value = [];
@@ -1789,12 +1790,29 @@ for(let i=0;i<arrMaximum_mass.length;i++){
     
     }
     for(let i=0;i<arrMaximum_mass.length;i++){
-        minWeight = 0;
-        arrMaximum_mass_value[i] = minWeight;
-        arrMaximum_mass[i].value = arrMaximum_mass_value[i];
+        
+        arrMaximum_mass_value[i] = 0;
+        
         }
-
-
+        y = 0;
+        minWeight = 0;
+        arrMaximum_mass[0].value = arrMaximum_mass_value[0];
+        arrMaximum_mass[1].value = arrMaximum_mass_value[1];
+        arrMaximum_mass[2].value = arrMaximum_mass_value[2];
+        arrMaximum_mass[3].value = arrMaximum_mass_value[3];
+        arrMaximum_mass[4].value = arrMaximum_mass_value[4];
+        arrMaximum_mass[5].value = arrMaximum_mass_value[5];
+        arrMaximum_mass[6].value = arrMaximum_mass_value[6];
+        arrMaximum_mass[7].value = arrMaximum_mass_value[7];
+        arrMaximum_mass[8].value = arrMaximum_mass_value[8];
+        arrMaximum_mass[9].value = arrMaximum_mass_value[9];
+        arrMaximum_mass[10].value = arrMaximum_mass_value[10];
+        arrMaximum_mass[11].value = arrMaximum_mass_value[11];
+        arrMaximum_mass[12].value = arrMaximum_mass_value[12];
+        arrMaximum_mass[13].value = arrMaximum_mass_value[13];
+        arrMaximum_mass[14].value = arrMaximum_mass_value[14];
+        arrMaximum_mass[15].value = arrMaximum_mass_value[15];
+        arrMaximum_mass[16].value = arrMaximum_mass_value[16];
 
 
     //console.log(arrFirstLevel);
